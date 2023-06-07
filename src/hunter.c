@@ -10,6 +10,8 @@
 
 void handle_null(sfRenderWindow *wd, game_t *game)
 {
+    (void)wd;
+    (void)game;
 }
 
 void cursor(sfRenderWindow *wd, game_t *game)
@@ -22,6 +24,7 @@ void cursor(sfRenderWindow *wd, game_t *game)
 
 void change_to_game(sfRenderWindow *wd, game_t *game)
 {
+    (void)wd;
     game->scn = 1;
     game->button = load_buttons("assets/game_menu.config");
     sfMusic_destroy(game->music);
@@ -30,15 +33,14 @@ void change_to_game(sfRenderWindow *wd, game_t *game)
     sfMusic_play(game->music);
 }
 
-void game_actions(sfRenderWindow *wd, game_t *game)
+void game_actions(game_t *game)
 {
-
     for (int i = 0; i < 5; i++) {
-        change_rects(wd, game->duck[i]);
-        move_duck(wd, game->duck[i]);
+        change_rects(game->duck[i]);
+        move_duck(game->duck[i]);
     }
     for (int i = 0; i < 3; i++)
-        move_pokeballs(wd, game, game->pokeball[i], i);
+        move_pokeballs(game, game->pokeball[i], i);
 }
 
 void hunter(void)
@@ -50,7 +52,7 @@ void hunter(void)
     while (sfRenderWindow_isOpen(wd)) {
         cursor(wd, game);
         if (game->scn)
-            game_actions(wd, game);
+            game_actions(game);
         while (sfRenderWindow_pollEvent(wd, &game->event))
             events(wd, game);
         display(wd, game);

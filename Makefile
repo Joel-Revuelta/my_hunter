@@ -20,7 +20,7 @@ NAME = my_hunter
 
 CC = gcc
 
-CFLAGS = -g3 -w -Wall -Wextra -Werror -I include/ -L lib/ -lmy
+CFLAGS = -W -Wall -Wextra -Werror -I include/ -L lib/ -lmy
 CSFML =  -lcsfml-graphics -lcsfml-audio -lcsfml-system -lcsfml-window
 
 all: 	$(NAME)

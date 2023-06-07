@@ -8,7 +8,7 @@
 #include "my.h"
 #include "hunter.h"
 
-void check_hit(sfRenderWindow *wd, game_t *game, pokeball_t *ball)
+void check_hit(game_t *game, pokeball_t *ball)
 {
     sfFloatRect duck_rect;
     sfFloatRect ball_rect;
@@ -17,7 +17,7 @@ void check_hit(sfRenderWindow *wd, game_t *game, pokeball_t *ball)
         duck_rect = sfSprite_getGlobalBounds(game->duck[i]->sprite);
         ball_rect = sfSprite_getGlobalBounds(ball->sprite);
         if (sfFloatRect_intersects(&duck_rect, &ball_rect, NULL)) {
-            reset_duck(wd, game->duck[i]);
+            reset_duck(game->duck[i]);
             ball->thrown = 2;
             game->score += 1;
             sfText_setString(game->score_txt, my_int_to_str(game->score));
@@ -27,7 +27,7 @@ void check_hit(sfRenderWindow *wd, game_t *game, pokeball_t *ball)
     }
 }
 
-void throw_pokeball(sfRenderWindow *wd, game_t *game)
+void throw_pokeball(game_t *game)
 {
     int x = -1;
     sfVector2f pos = {game->event.mouseButton.x, game->event.mouseButton.y};
@@ -57,7 +57,7 @@ void events(sfRenderWindow *wd, game_t *game)
 {
     if (game->event.type == sfEvtMouseButtonPressed) {
         if (game->scn && game->balls > 0)
-            throw_pokeball(wd, game);
+            throw_pokeball(game);
         for (int i = 0; game->button[i]; i++)
             check_button(wd, game, game->button[i]);
     }

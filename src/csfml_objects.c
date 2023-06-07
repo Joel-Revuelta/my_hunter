@@ -58,7 +58,7 @@ sfIntRect rect)
     sfRectangleShape *r_shape = sfRectangleShape_create();
     sfTexture *texture = sfTexture_createFromFile(fp, NULL);
 
-    sfRectangleShape_setTexture(r_shape, texture, NULL);
+    sfRectangleShape_setTexture(r_shape, texture, sfTrue);
     sfRectangleShape_setTextureRect(r_shape, rect);
     sfRectangleShape_setSize(r_shape, size);
     sfRectangleShape_setPosition(r_shape, pos);

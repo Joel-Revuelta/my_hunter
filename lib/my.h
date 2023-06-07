@@ -56,7 +56,6 @@
     char *my_int_to_str(int nbr);
     int my_arr_len(char **arr);
     char *open_file(char *file);
-    int my_printf(const char *format, ...);
     char *my_arr_to_str(char **arr_str, char del);
     char *my_strmalloc(int size);
 

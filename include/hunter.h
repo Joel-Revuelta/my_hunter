@@ -55,6 +55,7 @@
         sfMusic *music;
     } game_t;
 
+    void hunter(void);
     sfRenderWindow *create_window(char *name);
     sfSprite *create_sprite(char *filepath, int x, int y);
     sfText *create_text(char *font_fp, char *str, sfVector2f pos, int size);
@@ -67,10 +68,11 @@
     game_t *init_game(void);
     void display(sfRenderWindow *wd, game_t *game);
     void destroyer(sfRenderWindow *wd, game_t *game);
-    void reset_duck(sfRenderWindow *wd, duck_t *duck);
-    void move_duck(sfRenderWindow *wd, duck_t *duck);
-    void change_rects(sfRenderWindow *wd, duck_t *duck);
-    void check_hit(sfRenderWindow *wd, game_t *game, pokeball_t *ball);
+    void reset_duck(duck_t *duck);
+    void move_duck(duck_t *duck);
+    void change_rects(duck_t *duck);
+    void check_hit(game_t *game, pokeball_t *ball);
     void handle_null(sfRenderWindow *wd, game_t *game);
+    void move_pokeballs(game_t *game, pokeball_t *ball, int i);
 
 #endif /* !MY_LS_H_ */
