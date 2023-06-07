@@ -45,28 +45,11 @@ SRC	=	my_compute_power_rec.c		\
 		my_arr_to_str.c				\
 		my_malloc.c
 
-PRINTF_SRC = 	my_printf/my_printf.c 			\
-				my_printf/get_flags.c 			\
-				my_printf/create_arg.c 			\
-				my_printf/fl_b.c 				\
-				my_printf/fl_c.c 				\
-				my_printf/fl_d.c 				\
-				my_printf/fl_f.c 				\
-				my_printf/fl_n.c 				\
-				my_printf/fl_o.c 				\
-				my_printf/fl_p.c 				\
-				my_printf/fl_prc.c 				\
-				my_printf/fl_s.c 				\
-				my_printf/fl_ss.c 				\
-				my_printf/fl_u.c 				\
-				my_printf/fl_x.c 				\
-				my_printf/fl_xx.c
-
 OBJ	=	$(SRC:.c=.o)
 
 PRINTF_OBJ = $(PRINTF_SRC:.c=.o)
 
-CFLAGS = -w -Wall -Wextra -Werror -I .
+CFLAGS = -W -Wall -Wextra -Werror -I .
 
 NAME	=	libmy.a
 

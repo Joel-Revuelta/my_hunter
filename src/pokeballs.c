@@ -44,7 +44,7 @@ void rect_catch(pokeball_t *pokeball)
     }
 }
 
-void move_pokeballs(sfRenderWindow *wd, game_t *game, pokeball_t *ball, int i)
+void move_pokeballs(game_t *game, pokeball_t *ball, int i)
 {
     if (ball->thrown == 2)
         rect_catch(ball);
@@ -58,6 +58,6 @@ void move_pokeballs(sfRenderWindow *wd, game_t *game, pokeball_t *ball, int i)
         rect_pokeballs(ball);
         sfSprite_scale(ball->sprite, (sfVector2f){0.99, 0.99});
         if (sfSprite_getPosition(ball->sprite).y <= ball->target.y - 46)
-            check_hit(wd, game, ball);
+            check_hit(game, ball);
     }
 }

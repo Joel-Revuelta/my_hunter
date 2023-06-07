@@ -8,7 +8,7 @@
 #include "my.h"
 #include "hunter.h"
 
-void change_rects(sfRenderWindow *wd, duck_t *duck)
+void change_rects(duck_t *duck)
 {
     sfIntRect rect;
 
@@ -22,7 +22,7 @@ void change_rects(sfRenderWindow *wd, duck_t *duck)
     }
 }
 
-void reset_duck(sfRenderWindow *wd, duck_t *duck)
+void reset_duck(duck_t *duck)
 {
     sfVector2f pos = {1800, rand() % 500};
     duck->vel.x = rand() % 8 * -1 - 2;
@@ -30,9 +30,9 @@ void reset_duck(sfRenderWindow *wd, duck_t *duck)
     sfSprite_setPosition(duck->sprite, pos);
 }
 
-void move_duck(sfRenderWindow *wd, duck_t *duck)
+void move_duck(duck_t *duck)
 {
         sfSprite_move(duck->sprite, duck->vel);
         if (sfSprite_getPosition(duck->sprite).x < -200)
-            reset_duck(wd, duck);
+            reset_duck(duck);
 }
